@@ -1,0 +1,34 @@
+reservations:
+  YYZ-MEL:
+    id: 'YYZ-MEL'
+    source: 'YYZ'
+    destination: 'MEL'
+    via: ['YVR']
+    expectedStates: [
+    'YYZ-checkIn',
+    'YYZ-routing',
+    'YYZ-loading',
+    'YVR-offloading',
+    'YVR-routing',
+    'YVR-loading',
+    'MEL-offloading',
+    'MEL-routing',
+    'MEL-carousel',
+    ]
+
+  SYD-HND:
+    id: 'SYD-HND'
+    source: 'SYD'
+    destination: 'HND'
+    via: ['MEL']
+    expectedStates: [
+    'SYD-checkIn',
+    'SYD-routing',
+    'SYD-loading',
+    'MEL-offloading',
+    'MEL-routing',
+    'MEL-loading',
+    'HND-offloading',
+    'HND-routing',
+    'HND-carousel',
+    ]

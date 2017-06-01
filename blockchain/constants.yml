@@ -1,0 +1,24 @@
+# All constants and init values stored
+
+EMPTY_ADDRESS: '0x0000000000000000000000000000000000000000'
+
+FUELING_ACCOUNT: '0x871b327da2fdff737253c2bb8198c91dd59da74f'
+FUELING_PASSWORD: 'geth'
+
+PORT: 'port'
+IP: 'ip'
+
+ID: 'id'
+PARTY_ID: 'party_id'
+RESO_ID: 'reservation_id'
+RESO_SRC: 'reservation_source'
+RESO_DEST: 'reservation_destination'
+RESO_EXPECTED_STATES: 'reservation_expected_states'
+
+JSON_RPC: 'jsonrpc'
+
+REGISTRY_CONTRACT: 'registryContract'
+PARTY_CONTRACTS: 'partyContracts'
+
+INTERFACE: 'interface'
+DATA: 'data'

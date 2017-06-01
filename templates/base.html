@@ -1,0 +1,204 @@
+{% extends "bootstrap_ui/bootstrap-skeleton.html" %}
+{% load static %}
+
+
+{% block head-css %}
+    {{ block.super }}
+
+    <!-- Custom Fonts -->
+    <!--<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link href="{% static 'css/insightTheme.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block head-javascript %}
+    {{ block.super }}
+    <!--<script src="js/your-script.js" type="text/javascript"></script>-->
+{% endblock %}
+
+
+{% block head-title %}
+    Project Insight
+{% endblock %}
+
+
+{% block body-content %}
+    <div id="page-top" class="index">
+
+         <!-- Navigation -->
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="#page-top">Insight</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#baggageCheck">Baggage Check</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#transaction_log">Transaction Log</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+        <!-- Header -->
+        <header>
+            <div class="container" id="maincontent" tabindex="-1">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="intro-text">
+                            <h1 class="name">Project Insight</h1>
+                            <!--<img class="img-responsive" src="{% static 'images/airplane_icon.jpg' %}" alt="">-->
+                            <hr class="star-light">
+                            <span class="skills">Checking a Bag?</span>
+                            <p>Please enter your email and help us find your reservation.</p>
+
+                            <!--input form-->
+                            <form method="post" action="/fetch_reservation">
+                                {% csrf_token %}
+                                <input type="email" name="email" placeholder="Reservation Email" required="true" style="color: black;"/>
+                                <button type="submit" style="color: black;">Fetch</button>
+
+                                <!--<input type="checkbox" name="encrypt" class="custom-control-input">-->
+                                <!--<span class="custom-control-indicator"></span>-->
+                                <!--<span class="custom-control-description">Encrypt</span>-->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Baggage Check Section -->
+        <section id="baggageCheck">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Baggage Check</h2>
+                        <!--<hr class="star-light">-->
+                        {% if reservation %}
+                            <h4>Your Reservation: {{ reservation.id }}</h4>
+                            <p>Source: {{ reservation.source }}</p>
+                            <p>Destination: {{ reservation.destination }}</p>
+                            <p>Via: {{ reservation.via }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <!--<div class="col-lg-4 col-lg-offset-2">-->
+                        <!--<p>PLACEHOLDER</p>-->
+                    <!--</div>-->
+                    <!--<div class="col-lg-4">-->
+                        <!--<p>PLACEHOLDER</p>-->
+                    <!--</div>-->
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <a href="#" class="btn btn-lg btn-outline">
+                            <i class="fa fa-download"></i>PLACEHOLDER
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transaction Log Section -->
+        <section class="success" id="transaction_log">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Transaction Log</h2>
+                        <hr class="star-light">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-lg-offset-2">
+                        <p>PLACEHOLDER</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <p>PLACEHOLDER</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center">
+            <div class="footer-above">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col col-md-4">
+                            <h3>Location</h3>
+                            <p>Address
+                                <br>Address</p>
+                        </div>
+                        <div class="footer-col col-md-4">
+                            <h3>Around the Web</h3>
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="btn-social btn-outline"><span class="sr-only">Dribble</span><i class="fa fa-fw fa-dribbble"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-col col-md-4">
+                            <h3>About Insight</h3>
+                            <p>PLACEHOLDER<a href="#pagetop">Learn More</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-below">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Copyright &copy; PLACEHOLDER 2017
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+        <div class="scroll-top page-scroll">
+            <a class="btn btn-primary" href="#page-top">
+                <i class="fa fa-chevron-up"></i>
+            </a>
+        </div>
+
+    </div>
+{% endblock %}
+
+
+{% block body-javascript %}
+    {{ block.super }}
+    <!--<script src="js/your-lately-embedded-script.js" type="text/javascript"></script>-->
+{% endblock %}
